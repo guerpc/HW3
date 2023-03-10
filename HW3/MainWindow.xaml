@@ -1,0 +1,49 @@
+﻿<Window x:Class="HW3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HW3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Publisher Filename" HorizontalAlignment="Left" Margin="23,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.244,0.402" Width="123"/>
+        <Button x:Name="buttonOpenPubFile" Content="Open Publisher JSON File" HorizontalAlignment="Left" Margin="40,81,0,0" VerticalAlignment="Top" Width="159" Click="buttonOpenPubFile_Click"/>
+        <TextBox x:Name="textBoxPublisherFileName" HorizontalAlignment="Left" Height="23" Margin="175,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="455" DataContext="{Binding Name}" />
+        <Label x:Name="LabelPublishNameDisplay" Content="Publisher Name" HorizontalAlignment="Left" Margin="23,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.244,0.402" Width="123"/>
+        <Grid>
+            <Label x:Name="labelPublisherFileName" Content="Publisher Filename" HorizontalAlignment="Left" Margin="23,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.244,0.402" Width="123"/>
+            <Button x:Name="FindBook" Content="Find Book" HorizontalAlignment="Left" Margin="355,213,0,0" VerticalAlignment="Top" Width="104" Height="29" Click="FindBook_Click"/>
+            <TextBox x:Name="textBoxBookCountDisplay" HorizontalAlignment="Left" Height="23" Margin="163,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Text="{Binding Books.Count, Mode=OneWay}"/>
+            <Label x:Name="labelBookCount" Content="Book Count" HorizontalAlignment="Left" Margin="23,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.244,0.402" Width="123"/>
+            <TextBox x:Name="textBoxPublisherNameDisplay" HorizontalAlignment="Left" Height="23" Margin="175,138,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="455"/>
+            <Label x:Name="labelBooks" Content="Books" HorizontalAlignment="Left" Margin="23,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.244,0.402" Width="77"/>
+            <Label x:Name="labelBookTitle" Content="Book Title" HorizontalAlignment="Left" Margin="382,252,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.244,0.402" Width="77"/>
+            <Label x:Name="LabelAuthors" Content="Auhors" HorizontalAlignment="Left" Margin="382,323,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.244,0.402" Width="77"/>
+            <Label x:Name="labelTargetBookTitle" Content="Target Book Title" HorizontalAlignment="Left" Margin="355,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.244,0.402" Width="104"/>
+            <TextBox x:Name="textBoxBookTitle" HorizontalAlignment="Left" Height="23" Margin="468,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" SpellCheck.IsEnabled="True" Text="{Binding Title}"/>
+            <TextBox x:Name="textBoxBookPrice" HorizontalAlignment="Left" Height="23" Margin="468,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" Text="{Binding Price}"/>
+            <TextBox x:Name="textBoxTargetBookTitle" HorizontalAlignment="Left" Height="23" Margin="479,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283"/>
+            <ListView x:Name="listViewBooks" HorizontalAlignment="Left" Height="129" Margin="23,280,0,0" VerticalAlignment="Top" Width="354" ItemsSource="{Binding Books}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView x:Name="listViewAuthors" HorizontalAlignment="Left" Height="86" Margin="447,323,0,0" VerticalAlignment="Top" Width="304" ItemsSource="{Binding Authors}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding First}" Header="First"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Last}" Header="Last"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Background}" Header="Background"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
+        <Label x:Name="LabelBookPrice" Content="Book Price" HorizontalAlignment="Left" Margin="380,279,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.244,0.402" Width="77"/>
+
+    </Grid>
+</Window>
